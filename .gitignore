@@ -1,3 +1,4 @@
 test-server 
 xrest-server
 rest-server/node_modules
+basic-auth/node_modules
