@@ -3,3 +3,4 @@ xrest-server
 rest-server/node_modules
 basic-auth/node_modules
 basic-auth/sessions
+*/node_modules
