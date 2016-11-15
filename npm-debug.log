@@ -14,7 +14,7 @@
 5 verbose stack     at ReadFileContext.callback (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16)
 5 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:303:13)
 6 verbose cwd /Users/davidgudeman/Documents/Coursera_ServerSideDevelopmentWithNodeJS/Coursera_ServerSideDevelopmentWithNodeJS_Week03
-7 error Darwin 16.0.0
+7 error Darwin 16.1.0
 8 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 9 error node v4.6.1
 10 error npm  v2.15.9
