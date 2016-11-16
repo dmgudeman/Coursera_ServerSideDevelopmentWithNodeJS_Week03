@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Promotions = require('../models/promotions');
 var promoRouter = express.Router();
 promoRouter.use(bodyParser.json());
+var Verify = require('./verify');
 
 promoRouter.route('/')
 

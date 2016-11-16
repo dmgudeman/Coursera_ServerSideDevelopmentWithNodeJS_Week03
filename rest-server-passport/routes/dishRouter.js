@@ -29,7 +29,7 @@ dishRouter.route('/')
     });
 })
 
-.delete(Verify.verifyOrdinaryUser, function (req, res, next) {
+.delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
     Dishes.remove({}, function (err, resp) {
         if (err) throw err;
         res.json(resp);
@@ -44,7 +44,7 @@ dishRouter.route('/:dishId')
     });
 })
 
-.put(function (req, res, next) {
+.put(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
     Dishes.findByIdAndUpdate(req.params.dishId, {
         $set: req.body
     }, {
@@ -55,7 +55,7 @@ dishRouter.route('/:dishId')
     });
 })
 
-.delete(function (req, res, next) {
+.delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
     Dishes.findByIdAndRemove(req.params.dishId, function (err, resp) {        if (err) throw err;
         res.json(resp);
     });
@@ -68,7 +68,7 @@ dishRouter.route('/:dishId/comments')
     });
 })
 
-.post(function (req, res, next) {
+.post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
     Dishes.findById(req.params.dishId, function (err, dish) {
         if (err) throw err;
         dish.comments.push(req.body);

@@ -6,7 +6,11 @@ var Verify    = require('./verify');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  //res.send('respond with a resource');
+  User.find({}, function (err, user) {
+        if (err) throw err;
+        res.json(user);
+    });
 });
 
 router.post('/register', function(req, res) {

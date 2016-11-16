@@ -13,4 +13,6 @@ var User = new Schema({
 
 User.plugin(passportLocalMongoose);
 
+//var Dishes = mongoose.model('Dish', dishSchema);
+
 module.exports = mongoose.model('User', User);
