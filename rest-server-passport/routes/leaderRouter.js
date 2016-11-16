@@ -2,14 +2,13 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
 var Leadership = require('../models/leadership');
 var leaderRouter = express.Router();
-
 leaderRouter.use(bodyParser.json());
 var Verify = require('./verify');
 
 leaderRouter.route('/')
+
 .get(Verify.verifyOrdinaryUser, function(req,res,next){
         Leadership.find({}, function (err, leader) {
         if (err) throw err;

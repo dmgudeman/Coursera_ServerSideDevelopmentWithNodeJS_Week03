@@ -35,10 +35,7 @@ exports.verifyOrdinaryUser = function (req, res, next) {
     }
 };
 exports.verifyAdmin = function (req, res, next) {
-   console.log(req.decoded);
-    //verifyOrdinaryUser(req, res, next);
     var admin = req.decoded._doc.admin;
-    console.log(admin);
 
     if (admin === true) {
         if (err) {

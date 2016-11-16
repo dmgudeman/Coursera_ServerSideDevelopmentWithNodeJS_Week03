@@ -39,6 +39,7 @@ promoRouter.route('/')
 promoRouter.route('/:promoId')
 
 .get(function(req,res,next){
+    console.log(promoID);
         Promotions.findById(req.params.promoId, function (err, promotion) {
         if (err) throw err;
         res.json(promotion);
@@ -57,10 +58,12 @@ promoRouter.route('/:promoId')
 })
 
 .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
-        Promotions.findByIdAndRemove(req.params.promotionId, function (err, resp) {        
+        Promotions.findByIdAndRemove(req.params.promoId, function (err, resp) {        
         if (err) throw err;
         res.json(resp);
     });
 });
+
+
 
 module.exports = promoRouter;
