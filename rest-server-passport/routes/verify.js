@@ -34,3 +34,25 @@ exports.verifyOrdinaryUser = function (req, res, next) {
         return next(err);
     }
 };
+exports.verifyAdmin = function (req, res, next) {
+   console.log(req.decoded);
+    //verifyOrdinaryUser(req, res, next);
+    var admin = req.decoded._doc.admin;
+    console.log(admin);
+
+    if (admin === true) {
+        if (err) {
+            var err = new Error('You do not have administrative privleges!');
+            err.status = 401;
+            return next(err);
+        } else {
+            next();
+        }
+    } else {
+        // if there is no token
+        // return an error
+        var err = new Error('No token provided!');
+        err.status = 403;
+        return next(err);
+    }
+};

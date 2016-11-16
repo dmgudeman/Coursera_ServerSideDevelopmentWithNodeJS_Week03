@@ -21,6 +21,7 @@ router.post('/register', function(req, res) {
     });
 });
 
+
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
@@ -47,6 +48,7 @@ router.post('/login', function(req, res, next) {
     });
   })(req,res,next);
 });
+
 
 router.get('/logout', function(req, res) {
     req.logout();

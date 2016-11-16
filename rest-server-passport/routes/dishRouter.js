@@ -9,14 +9,14 @@ dishRouter.use(bodyParser.json());
 var Verify = require('./verify');
 
 dishRouter.route('/')
-.get(Verify.verifyOrdinaryUser, function (req, res, next) {
+.get(Verify.verifyOrdinaryUser,  function (req, res, next) {
     Dishes.find({}, function (err, dish) {
         if (err) throw err;
         res.json(dish);
     });
 })
 
-.post(Verify.verifyOrdinaryUser, function (req, res, next) {
+.post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
     Dishes.create(req.body, function (err, dish) {
         if (err) throw err;
         console.log('Dish created!');
