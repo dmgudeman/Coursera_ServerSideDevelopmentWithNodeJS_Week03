@@ -36,7 +36,6 @@ exports.verifyOrdinaryUser = function (req, res, next) {
 };
 exports.verifyAdmin = function (req, res, next) {
     var admin = req.decoded._doc.admin;
-
     if (admin === true) {
         if (err) {
             var err = new Error('You do not have administrative privleges!');
@@ -48,8 +47,8 @@ exports.verifyAdmin = function (req, res, next) {
     } else {
         // if there is no token
         // return an error
-        var err = new Error('No token provided!');
-        err.status = 403;
+        var err = new Error('You are not authenticated!');
+        err.status = 401;
         return next(err);
     }
 };
